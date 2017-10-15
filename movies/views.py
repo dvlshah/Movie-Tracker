@@ -5,6 +5,7 @@ from .models import Movies,Actor,Director
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from .tables import MoviesTable
 
 # Create your views here.
 
@@ -24,5 +25,13 @@ def detail(request,movie_id):
 		raise Http404("Movie with the given ID does not exist")
 	return django.shortcuts.render(request, 'movies/detail.html', {'movies':movie})
 
+#def movies(request):
+	#table = Movies(Movies.objects.all())
+	#table.paginate(page=request.GET.get('page', 1), per_page=10)
+#	return django.shortcuts.render(request, 'movies/movie_list.html', {'movies':Movies.objects.all()})
+    #return django.shortcuts.render(request, 'movies/movie_list.html', {'movies': Movies.objects.all()})
+
 def movies(request):
-    return django.shortcuts.render(request, 'movies/movie_list.html', {'movies': Movies.objects.all()})
+	table = MoviesTable(Movies.objects.all())
+	table.paginate(page=request.GET.get('page', 1), per_page=10)
+	return django.shortcuts.render(request, 'movies/movie_list.html', {'table': table})
