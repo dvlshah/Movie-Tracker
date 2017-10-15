@@ -38,5 +38,10 @@ Make sure you have install python3 in your machine.
   --> This url goes to HTML page for displaying and editing
       json formatted data through REST API of Movies
 [7]http://127.0.0.1:8000/api/movies/delete
---> This url goes to HTML page for displaying and deleting
+  --> This url goes to HTML page for displaying and deleting
     json formatted data through REST API of Movies
+
+The admin panel comes inbuilt in django package.
+I have added basic frontend to track movie list along with paginator.
+
+
