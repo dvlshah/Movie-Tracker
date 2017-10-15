@@ -1,0 +1,9 @@
+{% if all_movies %}
+  <ul>
+    {% for movies in all_movies %}
+      <li>{{ movies.id }}</li>
+    {% endfor %}
+  </ul>
+{% else %}
+    <h3>No movies to display!</h3>
+{% endif %}
